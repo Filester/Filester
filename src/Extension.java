@@ -2,26 +2,11 @@ public class Extension extends Classifier
 {
     @Override
     public void setData() {
-
+        System.out.println("Extension : set data");
     }
 
     @Override
     public void writeData() {
-
-    }
-
-    @Override
-    public void display() {
-
-    }
-
-    @Override
-    public void setPathSrc(String pathSrc) {
-
-    }
-
-    @Override
-    public void setPathDst(String pathDst) {
-
+        System.out.println("Extension : write data");
     }
 }
