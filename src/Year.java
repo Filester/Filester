@@ -1,13 +1,16 @@
+import java.io.File;
+import java.time.LocalDate;
+
 public class Year extends Classifier {
 
     @Override
-    public void setData() {
-        System.out.println("year : set data ");
+    public String getInfo(File file) {
+        LocalDate currentDate = LocalDate.now();
+        return currentDate.getYear()+"";
     }
 
     @Override
-    public void writeData() {
-        System.out.println("year : write set");
+    public String toString() {
+        return "Year";
     }
-
 }

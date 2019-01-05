@@ -1,14 +1,16 @@
+import java.io.File;
+
 public class Alfabet extends Classifier {
+
     @Override
-    public void setData() {
-        System.out.println("Alfabet : set data");
+    public String getInfo(File file) {
+        return file.getName().charAt(0)+"";
     }
 
     @Override
-    public void writeData() {
-        System.out.println("Alfabet : write data");
+    public String toString() {
+        return "Alfabet";
     }
-
 }
 
 

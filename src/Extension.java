@@ -1,12 +1,17 @@
+import java.io.File;
+
 public class Extension extends Classifier
 {
     @Override
-    public void setData() {
-        System.out.println("Extension : set data");
+    public String getInfo(File file) {
+        String fileName = file.getName();
+        if(fileName.lastIndexOf(".") != -1 && fileName.lastIndexOf(".") != 0)
+            return fileName.substring(fileName.lastIndexOf(".")+1);
+        else return "";
     }
 
     @Override
-    public void writeData() {
-        System.out.println("Extension : write data");
+    public String toString() {
+        return "Extension";
     }
 }

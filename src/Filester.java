@@ -5,7 +5,7 @@ public class Filester {
     public static void main(String[] args) {
         Filester tes = new Filester();
         tes.setKlasifikasi(1);
-        tes.setPath("out/","dst/");
+        tes.setPath("data/","data/");
         tes.runFilester();
     }
 
