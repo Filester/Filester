@@ -8,6 +8,7 @@ public abstract class Classifier {
     HashMap<String, ArrayList<File>> data;
     String pathSrc;
     String pathDst;
+    InfoFileBehavior infoFileBehavior;
 
     public void setData() {
         System.out.println(this+" set data");
@@ -18,12 +19,12 @@ public abstract class Classifier {
 
         //file.forEach(fileName -> System.out.println("\t "+fileName.getAbsolutePath()));
         for (File file : files) {
-            if(this.getInfo(file).compareToIgnoreCase("")==0)
+            if(this.getInfobehavior(file).compareToIgnoreCase("")==0)
                 continue;
-            ArrayList<File> alternateList = data.get(this.getInfo(file));
+            ArrayList<File> alternateList = data.get(this.getInfobehavior(file));
             if(alternateList == null) {
                 alternateList = new ArrayList<>();
-                data.put(this.getInfo(file), alternateList);
+                data.put(this.getInfobehavior(file), alternateList);
             }
             alternateList.add(file);
 
@@ -83,6 +84,10 @@ public abstract class Classifier {
         return pathDst;
     }
 
-    public abstract String getInfo(File file);
+    public void setInfoBehaVior (InfoFileBehavior ib) { infoFileBehavior=ib; };
+
+    public String getInfobehavior(File file) {
+        return infoFileBehavior.getInfo(file);
+    }
 
 }

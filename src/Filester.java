@@ -12,15 +12,19 @@ public class Filester {
     public void setKlasifikasi(int pilihan) {
         if(pilihan==1){
             this.klasifikasi = new Extension();
+            klasifikasi.setInfoBehaVior(new InfoExtension());
         }
         else if (pilihan==2){
             this.klasifikasi = new Year();
+            klasifikasi.setInfoBehaVior(new InfoYear());
         }
         else if(pilihan==3){
             this.klasifikasi = new Month();
+            klasifikasi.setInfoBehaVior(new InfoMonth());
         }
         else if(pilihan==4){
             this.klasifikasi = new Alfabet();
+            klasifikasi.setInfoBehaVior(new InfoAlphabetName());
         }
         else{
             System.out.println("error pilihan :"+ pilihan +"\n 1 : extension \n 2 : year \n 3 : month \n 4 : alfabet ");
