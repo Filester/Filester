@@ -1,9 +1,9 @@
 import java.io.File;
 
-public class Input implements State{
+public class HasConfig implements State{
     Filester filester;
 
-    public Input(Filester filester){
+    public HasConfig(Filester filester){
         this.filester=filester;
     }
 
@@ -81,6 +81,6 @@ public class Input implements State{
 
     @Override
     public void runFilester() {
-        System.out.println("set pilihan");
+        System.out.println("error cant call rufilester at hasconfig");
     }
 }

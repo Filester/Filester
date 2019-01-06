@@ -1,7 +1,7 @@
-public class NoPilihan implements State {
+public class NoConfig implements State {
     Filester filester;
 
-    public NoPilihan(Filester filester){
+    public NoConfig(Filester filester){
         this.filester=filester;
     }
 
@@ -19,6 +19,6 @@ public class NoPilihan implements State {
 
     @Override
     public void runFilester() {
-        System.out.println("cant runFilester in noPilihan : input pilihan klasifkasi");
+        System.out.println("cant runFilester in noConfig : input pilihan klasifkasi");
     }
 }

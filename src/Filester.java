@@ -1,21 +1,19 @@
-import java.io.File;
-
 public class Filester {
     Classifier klasifkasi;
 
-    State noPilihan;
-    State input;
+    State noConfig;
+    State hasConfig;
     State ready;
     State doneKlasifikasi;
 
     State state;
 
     public Filester(){
-        noPilihan =  new NoPilihan(this);
-        input = new Input(this);
+        noConfig =  new NoConfig(this);
+        hasConfig = new HasConfig(this);
         ready =  new Ready(this);
-        doneKlasifikasi = new Klasifikasi(this);
-        this.state= noPilihan;
+        doneKlasifikasi = new Done(this);
+        this.state= noConfig;
     }
 
     public static void main(String[] args) {
@@ -23,6 +21,7 @@ public class Filester {
 
         tes.setPath("data/","dst/");
         tes.setPilihan(4);
+        tes.setPilihan(2);
 
         tes.runFilester();
     }
@@ -39,8 +38,8 @@ public class Filester {
         this.state.runFilester();
     }
 
-    public State getNoPilihan(){
-        return noPilihan;
+    public State getNoConfig(){
+        return noConfig;
     }
 
     public State getDoneKlasifikasi() {
@@ -52,7 +51,7 @@ public class Filester {
     }
 
     public State getInput() {
-        return input;
+        return hasConfig;
     }
 
     public State getReady() {
