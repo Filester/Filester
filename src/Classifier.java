@@ -33,8 +33,7 @@ public abstract class Classifier {
     }
     public void writeData() {
         File directory = new File(pathDst);
-
-        System.out.println("Extension : write data");
+        System.out.println(this+" write data");
         System.out.println(directory.getAbsoluteFile());
 
         for (Map.Entry<String, ArrayList<File>> dataFile:data.entrySet()) {
