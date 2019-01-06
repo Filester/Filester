@@ -28,17 +28,17 @@ public class Filester {
 
     }
 
-    public void setPath(String pathsSrc,String pathDst){
+    public void setPath(String pathSrc,String pathDst){
         if(klasifikasi==null) {
             return;
         }
-        if(pathsSrc.compareToIgnoreCase(pathDst)==0){
+        if(pathSrc.compareToIgnoreCase(pathDst)==0){
             System.out.println("error src == dst");
-            System.out.println("src : "+pathsSrc);
+            System.out.println("src : "+pathSrc);
             System.out.println("dst : "+pathDst);
             return;
         }
-        File fileSrc = new File(pathsSrc);
+        File fileSrc = new File(pathSrc);
         File fileDst = new File(pathDst);
 
         if(fileSrc.isDirectory() && fileDst.isDirectory()){
@@ -54,9 +54,9 @@ public class Filester {
             }
 
         }
-        System.out.println("add src directory");
-        System.out.println("add dst directory");
-        this.klasifikasi.setPathSrc(pathsSrc);
+        System.out.println("add src "+pathSrc);
+        System.out.println("add dst "+pathDst);
+        this.klasifikasi.setPathSrc(pathSrc);
         this.klasifikasi.setPathDst(pathDst);
     }
 
