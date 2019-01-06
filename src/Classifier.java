@@ -47,6 +47,7 @@ public abstract class Classifier {
     }
 
     public void display(String stat ,String key,String fileName){
+        // stat read or write
         System.out.println(stat+" "+key+" "+fileName);
     }
 
