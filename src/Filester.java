@@ -4,24 +4,27 @@ public class Filester {
     Classifier klasifkasi;
 
     State noPilihan;
-    State inPilihan;
-    State path;
+    State input;
+    State ready;
     State doneKlasifikasi;
 
     State state;
 
     public Filester(){
         noPilihan =  new NoPilihan(this);
-        inPilihan = new InPilihan(this);
-        path =  new Path(this);
+        input = new Input(this);
+        ready =  new Ready(this);
         doneKlasifikasi = new Klasifikasi(this);
         this.state= noPilihan;
     }
 
     public static void main(String[] args) {
         Filester tes = new Filester();
-        tes.setPilihan(1);
         tes.setPath("data/","dst/");
+
+        tes.setPilihan(1);
+
+
         tes.runFilester();
     }
 
@@ -41,14 +44,6 @@ public class Filester {
         return noPilihan;
     }
 
-    public State getInPilihan() {
-        return inPilihan;
-    }
-
-    public State getPath() {
-        return path;
-    }
-
     public State getDoneKlasifikasi() {
         return doneKlasifikasi;
     }
@@ -57,4 +52,11 @@ public class Filester {
         this.state = state;
     }
 
+    public State getInput() {
+        return input;
+    }
+
+    public State getReady() {
+        return ready;
+    }
 }

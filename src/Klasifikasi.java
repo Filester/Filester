@@ -18,5 +18,6 @@ public class Klasifikasi implements State {
     @Override
     public void runFilester() {
         System.out.println("Klasifikasi is done");
+
     }
 }
