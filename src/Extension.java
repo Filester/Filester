@@ -2,6 +2,14 @@ import java.io.File;
 
 public class Extension extends Classifier
 {
+    public Extension(){
+
+    }
+    public Extension(String pathSrc,String pathDst){
+        this.pathSrc=pathSrc;
+        this.pathDst=pathDst;
+    }
+
     @Override
     public String getInfo(File file) {
         String fileName = file.getName();

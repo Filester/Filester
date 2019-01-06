@@ -20,10 +20,9 @@ public class Filester {
 
     public static void main(String[] args) {
         Filester tes = new Filester();
+
         tes.setPath("data/","dst/");
-
-        tes.setPilihan(1);
-
+        tes.setPilihan(4);
 
         tes.runFilester();
     }

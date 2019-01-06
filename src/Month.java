@@ -5,6 +5,13 @@ import java.util.Date;
 
 public class Month extends Classifier {
 
+    public Month(){
+
+    }
+    public Month(String pathSrc,String pathDst){
+        this.pathSrc=pathSrc;
+        this.pathDst=pathDst;
+    }
     @Override
     public String getInfo(File file) {
         LocalDate currentDate = LocalDate.now();
