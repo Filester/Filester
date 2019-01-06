@@ -84,7 +84,7 @@ public abstract class Classifier {
         return pathDst;
     }
 
-    public void setInfoBehaVior (InfoFileBehavior ib) { infoFileBehavior=ib; };
+    public void setInfoBehaVior (InfoFileBehavior ifb) { infoFileBehavior=ifb; };
 
     public String getInfobehavior(File file) {
         return infoFileBehavior.getInfo(file);
