@@ -1,71 +1,60 @@
 import java.io.File;
 
 public class Filester {
-    Classifier klasifikasi;
+    Classifier klasifkasi;
+
+    State noPilihan;
+    State inPilihan;
+    State path;
+    State doneKlasifikasi;
+
+    State state;
+
+    public Filester(){
+        noPilihan =  new NoPilihan(this);
+        inPilihan = new InPilihan(this);
+        path =  new Path(this);
+        doneKlasifikasi = new Klasifikasi(this);
+        this.state= noPilihan;
+    }
+
     public static void main(String[] args) {
         Filester tes = new Filester();
-        tes.setKlasifikasi(1);
+        tes.setPilihan(1);
         tes.setPath("data/","dst/");
         tes.runFilester();
     }
 
-    public void setKlasifikasi(int pilihan) {
-        if(pilihan==1){
-            this.klasifikasi = new Extension();
-        }
-        else if (pilihan==2){
-            this.klasifikasi = new Year();
-        }
-        else if(pilihan==3){
-            this.klasifikasi = new Month();
-        }
-        else if(pilihan==4){
-            this.klasifikasi = new Alfabet();
-        }
-        else{
-            System.out.println("error pilihan :"+ pilihan +"\n 1 : extension \n 2 : year \n 3 : month \n 4 : alfabet ");
-        }
-
+    public void setPilihan(int pilihan ){
+        this.state.setKlasifikasi(pilihan);
     }
 
     public void setPath(String pathSrc,String pathDst){
-        if(klasifikasi==null) {
-            return;
-        }
-        if(pathSrc.compareToIgnoreCase(pathDst)==0){
-            System.out.println("error src == dst");
-            System.out.println("src : "+pathSrc);
-            System.out.println("dst : "+pathDst);
-            return;
-        }
-        File fileSrc = new File(pathSrc);
-        File fileDst = new File(pathDst);
-
-        if(fileSrc.isDirectory() && fileDst.isDirectory()){
-
-            if(fileSrc.list().length==0 ){
-
-                System.out.println("src : Directory is empty!");
-                return;
-            }
-            if(fileDst.list().length!=0 ){
-                System.out.println("dst : Directory is not empty!");
-                return;
-            }
-
-        }
-        System.out.println("add src "+pathSrc);
-        System.out.println("add dst "+pathDst);
-        this.klasifikasi.setPathSrc(pathSrc);
-        this.klasifikasi.setPathDst(pathDst);
+        this.state.setPath(pathSrc,pathDst);
     }
 
     public void runFilester(){
-        if(this.klasifikasi!=null && this.klasifikasi.getPathSrc()!=null && this.klasifikasi.getPathDst()!=null){
-            this.klasifikasi.setData();
-            this.klasifikasi.writeData();
-        }else{
-            System.out.println("ikuti prosedure");
-        }
+        this.state.runFilester();
     }
+
+    public State getNoPilihan(){
+        return noPilihan;
+    }
+
+    public State getInPilihan() {
+        return inPilihan;
+    }
+
+    public State getPath() {
+        return path;
+    }
+
+    public State getDoneKlasifikasi() {
+        return doneKlasifikasi;
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
+
 }
